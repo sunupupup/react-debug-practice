@@ -1,21 +1,30 @@
-# 前端调试练习
+# Frontend debug exercise
 
-纯 React 应用，**仅一个文件** `src/App.tsx`，存在功能问题。
+Single-file React app. All logic lives in **`src/App.tsx`**.
 
-## 启动
+## Run
 
 ```bash
 npm install
 npm run dev
 ```
 
-浏览器打开终端提示的地址（通常 http://localhost:5173）。
+## UI
 
-## 现象
+A **task list** renders on load (4 static items).
 
-- 打开页面可能 **白屏**
-- **提交** 按钮点击无反应
+| Button | Expected | Actual (buggy) |
+|--------|----------|----------------|
+| **Sync selection** | Shows “Sync succeeded” | No response |
+| **Load detail** | Shows task detail | **White screen** after click |
 
-## 任务
+## Your job
 
-用开发者工具（Console / Network）定位并修复 `src/App.tsx` 中的问题，使页面正常显示用户名，且提交按钮在星期日可弹出「提交成功」。
+1. Confirm the list renders (not broken on first paint).
+2. Click each button; use **Console** and **Network** (watch for `POST /api/tasks/detail`).
+3. Fix `src/App.tsx`.
+
+## Done when
+
+- **Sync selection** shows success feedback when clicked.
+- **Load detail** does not crash; detail area renders safely.
